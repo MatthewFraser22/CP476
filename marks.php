@@ -5,36 +5,38 @@
 
 <body>
     <?php include 'header.php'; ?>
-    <h2>Marks</h2>
-    <p>This shows the marks for the student. Click on the edit button to change their marks.</p>
-    <div style="overflow-x:auto;">
-        <table>
-            <tr>
-                <th>Grade item</th>
-                <th>Grade</th>
-                <th>Edit</th>
+    <div class="container">
+        <h2>Marks</h2>
+        <p>This shows the marks for the student. Click on the edit button to change their marks.</p>
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>Grade item</th>
+                    <th>Grade</th>
+                    <th>Edit</th>
 
 
-            </tr>
-            <tr>
-                <td>Test 1</td>
-                <td>50</td>
-                <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Test 1</td>
+                    <td>50</td>
+                    <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
 
-            </tr>
-            <tr>
-                <td>Test 2</td>
-                <td>50</td>
-                <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Test 2</td>
+                    <td>50</td>
+                    <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
 
-            </tr>
-            <tr>
-                <td>Test 3</td>
-                <td>50</td>
-                <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Test 3</td>
+                    <td>50</td>
+                    <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
 
-            </tr>
-        </table>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 
