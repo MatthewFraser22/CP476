@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/table.css" type="text/css">
-
+<script src="index.js"></script>
 
 <html>
 
@@ -12,11 +12,11 @@
                 <th>Course Code </th>
                 <th>Course Name</th>
             </tr>
-            <tr>
+            <tr onclick="redirect()">
                 <td>CP476</td>
                 <td>Internet Computing</td>
             </tr>
-            <tr>
+            <tr onclick=" redirect()">
                 <td>CP312</td>
                 <td>Algorithims</td>
             </tr>

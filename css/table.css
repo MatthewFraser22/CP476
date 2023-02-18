@@ -18,4 +18,13 @@ th, td {
   padding: 8px;
 }
 
+tr:first-of-type {
+ background-color: lightgray;
+}
+
+tr:not(:first-child):hover{
+  background-color: skyblue !important;
+  cursor:pointer;
+}
+
 tr:nth-child(even){background-color: #f2f2f2}
