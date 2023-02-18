@@ -6,6 +6,7 @@
 <body>
     <?php include 'header.php'; ?>
     <h2>Course List</h2>
+    <p>This shows the list of courses. Click on a course to see the students enrolled in the class.</p>
     <div style="overflow-x:auto;">
         <table>
             <tr>
