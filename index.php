@@ -4,12 +4,7 @@
 <html>
 
 <body>
-    <div class="header">
-        <a href="#default" class="logo">EasyMarking</a>
-        <div class="header-right">
-            <a class="active" href="#home">Course List</a>
-        </div>
-    </div>
+    <?php include 'header.php'; ?>
     <h2>Course List</h2>
     <div style="overflow-x:auto;">
         <table>

@@ -4,6 +4,7 @@
 <html>
 
 <body>
+    <?php include 'header.php'; ?>
     <h2>Class List</h2>
     <div style="overflow-x:auto;">
         <table>
