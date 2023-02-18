@@ -10,7 +10,7 @@
             <a class="active" href="#home">Course List</a>
         </div>
     </div>
-
+    <h2>Course List</h2>
     <div style="overflow-x:auto;">
         <table>
             <tr>
