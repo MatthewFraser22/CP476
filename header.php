@@ -2,7 +2,7 @@
 <div class="header">
     <div class="logoContainer">
         <a href="./index.php" class="logo">
-            <img src=" logo.jpg" alt="logo" />
+            <img src=" logo.svg" alt="logo" />
         </a>
         <a href="./index.php" class="logo">EasyMarking</a>
     </div>
