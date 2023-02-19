@@ -26,7 +26,7 @@
                         <form method="post" class="editForm" style="visibility: hidden; display:inline;">
                             <label for="grade">New Grade: </label>
 
-                            <input name="grade" placeholder="eg; 50.0" />
+                            <input onchange="setTwoNumberDecimal" step="0.01" min="0" max="100" type="number" name="grade" placeholder="eg; 50.0" />
                             <button type="submit" value="Submit">Submit </button>
                         </form>
                         <?php
@@ -37,7 +37,7 @@
                             $db = new database();
                             $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
                             echo '<script>
-                            alert("Grade has been updated!");
+                            // alert("Grade has been updated!");
                             window.location.href="./marks.php";
                             </script>';
                             // echo $count;
