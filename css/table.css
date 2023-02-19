@@ -37,6 +37,14 @@ tr:nth-child(even){background-color: #f2f2f2}
   padding: 1rem;
 
 }
+
+.container h1{
+  text-align: center;
+}
+
+.container h4{
+  text-align: center;
+}
 .editCol{
   min-width: 50rem;
 }
