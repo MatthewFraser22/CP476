@@ -32,3 +32,6 @@ tr:nth-child(even){background-color: #f2f2f2}
 .container{
   padding: 1rem;
 }
+.editCol{
+  min-width: 50rem;
+}

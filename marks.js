@@ -1,5 +1,5 @@
-function showDiv() {
-    document.getElementById('welcomeDiv').style.visibility = "visible";
+function showDiv(index) {
+    document.getElementsByClassName('editForm')[index].style.visibility = "visible";
  
-    document.getElementById('edit').style.display = "none";
+    document.getElementsByClassName('edit')[index].style.display = "none";
  }

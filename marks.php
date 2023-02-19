@@ -13,23 +13,20 @@
                 <tr>
                     <th>Grade item</th>
                     <th>Grade</th>
-                    <th>Edit</th>
+                    <th class="editCol">Edit</th>
 
 
                 </tr>
                 <tr>
                     <td>Test 1</td>
                     <td>50</td>
-                    <td><button id="edit" type="button" onclick="showDiv()">Edit</button>
-                        <form action="/action_page.php" id="welcomeDiv" style="visibility: hidden; display:inline;">
-                            <label for="fname">New Grade: </label>
+                    <td><button class="edit" type="button" onclick="showDiv(0)">Edit</button>
+                        <form action="/action_page.php" class="editForm" style="visibility: hidden; display:inline;">
+                            <label for="grade">New Grade: </label>
 
-                            <input name="fname" class="answer_list" placeholder="eg; 50" />
+                            <input name="grade" placeholder="eg; 50" />
                             <input type="submit" value="Submit">
                         </form>
-
-                        <input id="welcomeDiv" style="display:none;" class="answer_list" />
-
                     </td>
 
                 </tr>
