@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/table.css" type="text/css">
 <script src="marks.js"></script>
+<?php include 'database.php'; ?>
 
 <html>
 
@@ -42,6 +43,22 @@
                     <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
 
                 </tr>
+                <?php
+                $db = new database();
+                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $count = count($rows);
+                // echo $count;
+                // print_r($rows);
+                foreach ($rows as $row) {
+                    echo "
+                    <tr>
+                    <td onclick='redirect()'>{$row["value"]}</td>
+                    <td>Bla bla</td>
+                    <td><button type='button' onclick='alert('Hello world!')'>Edit</button></td>
+                    </tr>";
+                }
+                ?>
+
             </table>
         </div>
     </div>
@@ -80,6 +97,22 @@
                     <td>50.5</td>
 
                 </tr>
+                <?php
+                $db = new database();
+                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $count = count($rows);
+                // echo $count;
+                // print_r($rows);
+                foreach ($rows as $row) {
+                    echo "
+                    <tr>
+                    <td onclick='redirect()'>{$row["value"]}</td>
+                    <td>Bla bla</td>
+                    <td>Aa</td>
+                    <td>bb</td>
+                    </tr>";
+                }
+                ?>
             </table>
         </div>
     </div>

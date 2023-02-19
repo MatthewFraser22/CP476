@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/table.css" type="text/css">
 <script src="class.js"></script>
-
+<?php include 'database.php'; ?>
 <html>
 
 <body>
@@ -38,6 +38,22 @@
                     <td>50</td>
 
                 </tr>
+                <?php
+                $db = new database();
+                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $count = count($rows);
+                // echo $count;
+                // print_r($rows);
+                foreach ($rows as $row) {
+                    echo "
+                    <tr>
+                    <td onclick='redirect()'>{$row["value"]}</td>
+                    <td>Bla bla</td>
+                    <td>Aa</td>
+                    <td>bb</td>
+                    </tr>";
+                }
+                ?>
             </table>
         </div>
     </div>
