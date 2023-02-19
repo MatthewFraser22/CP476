@@ -1,5 +1,6 @@
 .header {
-
+  color: #093c94  !important;
+  font-weight: bold;
   z-index: 1000;
     overflow: hidden;
   display: flex;
@@ -25,7 +26,7 @@
   }
   .header a {
     float: left;
-    color: black;
+    color: #093c94;
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -66,3 +67,14 @@
     }
   }
   
+  .blueButton{    
+    padding: 1rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+
+    border-radius: 4px;
+    cursor:pointer;
+  }

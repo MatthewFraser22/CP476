@@ -22,12 +22,12 @@
                 <tr>
                     <td>Test 1</td>
                     <td>50</td>
-                    <td><button class="edit" type="button" onclick="showDiv(0)">Edit</button>
+                    <td><button class="edit blueButton" type="button" onclick="showDiv(0)">Edit</button>
                         <form method="post" class="editForm" style="visibility: hidden; display:inline;">
                             <label for="grade">New Grade: </label>
 
                             <input onchange="setTwoNumberDecimal" step="0.01" min="0" max="100" type="number" name="grade" placeholder="eg; 50.0" />
-                            <button type="submit" value="Submit">Submit </button>
+                            <button class="blueButton" type="submit" value="Submit">Submit </button>
                         </form>
                         <?php
                         if (isset($_POST["grade"])) {
@@ -53,13 +53,13 @@
                 <tr>
                     <td>Test 2</td>
                     <td>50</td>
-                    <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
+                    <td><button class="blueButton" type="button" onclick="alert('Hello world!')">Edit</button></td>
 
                 </tr>
                 <tr>
                     <td>Test 3</td>
                     <td>50</td>
-                    <td><button type="button" onclick="alert('Hello world!')">Edit</button></td>
+                    <td><button class="blueButton" type="button" onclick="alert('Hello world!')">Edit</button></td>
 
                 </tr>
                 <?php
@@ -73,7 +73,7 @@
                     <tr>
                     <td onclick='redirect()'>{$row["FirstName"]}</td>
                     <td>Bla bla</td>
-                    <td><button type='button' onclick='alert('Hello world!')'>Edit</button></td>
+                    <td><button class='blueButton' type='button' onclick='alert('Hello world!')'>Edit</button></td>
                     </tr>";
                 }
                 ?>
@@ -135,6 +135,7 @@
             </table>
         </div>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

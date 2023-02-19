@@ -45,7 +45,7 @@
                 <label for="sqlAttack">SQL Attack / Query: </label>
 
                 <input class="sqlAttack" name="sqlAttack" placeholder="Enter a SQL attack" value="SELECT * FROM Persons WHERE FirstName='Matthew' OR 1=1" />
-                <button type="submit" value="Submit">Submit </button>
+                <button class="blueButton" type="submit" value="Submit">Submit </button>
             </form>
         </div>
         <table>
