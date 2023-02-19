@@ -4,9 +4,13 @@
 
 <?php
 $db = new database();
-
-
-
+$rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+$count = count($rows);
+// echo $count;
+// print_r($rows);
+foreach ($rows as $row) {
+    echo $row["value"];
+}
 ?>
 <html>
 
