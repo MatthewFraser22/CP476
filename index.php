@@ -2,16 +2,7 @@
 <script src="index.js"></script>
 <?php include 'database.php'; ?>
 
-<?php
-$db = new database();
-$rows = $db->query('SELECT value FROM sys_config')->fetchAll();
-$count = count($rows);
-// echo $count;
-// print_r($rows);
-foreach ($rows as $row) {
-    echo $row["value"];
-}
-?>
+
 <html>
 
 <body>
@@ -33,7 +24,16 @@ foreach ($rows as $row) {
                     <td>CP312</td>
                     <td>Algorithims</td>
                 </tr>
-
+                <?php
+                $db = new database();
+                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $count = count($rows);
+                // echo $count;
+                // print_r($rows);
+                foreach ($rows as $row) {
+                    echo "<tr><td onclick='redirect()'>{$row["value"]}</td><td>Bla bla</td></tr>";
+                }
+                ?>
             </table>
         </div>
     </div>

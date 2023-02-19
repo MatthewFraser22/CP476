@@ -9,7 +9,7 @@ class database
 
         $servername = "127.0.0.1";
         $username = "root";
-        $password = "W";
+        $password = "w";
         try {
             $this->conn = new PDO("mysql:host=$servername;dbname=sys", $username, $password);
             // set the PDO error mode to exception
