@@ -35,8 +35,10 @@
                             ];
                             $db = new database();
                             $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
-                            echo "grade {$_POST['grade']}";
-                            header('Location: ./marks.php');
+                            echo '<script>
+                            alert("Grade has been updated!");
+                            window.location.href="./marks.php";
+                            </script>';
                             // echo $count;
                             // print_r($rows);
                         }
