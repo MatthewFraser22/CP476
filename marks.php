@@ -22,12 +22,25 @@
                     <td>Test 1</td>
                     <td>50</td>
                     <td><button class="edit" type="button" onclick="showDiv(0)">Edit</button>
-                        <form action="/action_page.php" class="editForm" style="visibility: hidden; display:inline;">
+                        <form method="post" class="editForm" style="visibility: hidden; display:inline;">
                             <label for="grade">New Grade: </label>
 
                             <input name="grade" placeholder="eg; 50.0" />
-                            <input type="submit" value="Submit">
+                            <button type="submit" value="Submit">Submit </button>
                         </form>
+                        <?php
+                        $data = [
+                            'name' => $_POST['grade'],
+                        ];
+                        $db = new database();
+                        $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
+
+                        // echo $count;
+                        // print_r($rows);
+
+                        ?>
+
+                        <?php echo "grade {$_POST['grade']}"; ?>
                     </td>
 
                 </tr>
