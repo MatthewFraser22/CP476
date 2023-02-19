@@ -29,18 +29,21 @@
                             <button type="submit" value="Submit">Submit </button>
                         </form>
                         <?php
-                        $data = [
-                            'name' => $_POST['grade'],
-                        ];
-                        $db = new database();
-                        $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
-
-                        // echo $count;
-                        // print_r($rows);
-
+                        if (isset($_POST["grade"])) {
+                            $data = [
+                                'name' => $_POST['grade'],
+                            ];
+                            $db = new database();
+                            $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
+                            echo "grade {$_POST['grade']}";
+                            header('Location: http://127.0.0.1/CP476/marks.php');
+                            // echo $count;
+                            // print_r($rows);
+                        }
                         ?>
 
-                        <?php echo "grade {$_POST['grade']}"; ?>
+
+
                     </td>
 
                 </tr>
@@ -58,14 +61,14 @@
                 </tr>
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $rows = $db->query('SELECT FirstName FROM Persons')->fetchAll();
                 $count = count($rows);
                 // echo $count;
                 // print_r($rows);
                 foreach ($rows as $row) {
                     echo "
                     <tr>
-                    <td onclick='redirect()'>{$row["value"]}</td>
+                    <td onclick='redirect()'>{$row["FirstName"]}</td>
                     <td>Bla bla</td>
                     <td><button type='button' onclick='alert('Hello world!')'>Edit</button></td>
                     </tr>";
