@@ -36,6 +36,33 @@
                 ?>
             </table>
         </div>
+        <h2>Demonstration of SQL injection</h2>
+        <p>This shows how SQL injection works with SELECT * FROM Persons WHERE FirstName = 'Matthew' OR 1=1. 1=1 means truthy condition so it will return all data in the table and ignore any condition after 1=1.</p>
+        <div>
+            <form method="get">
+                <label for="sqlAttack">SQL Attack: </label>
+
+                <input class="sqlAttack" name="sqlAttack" placeholder="Enter a SQL attack" value="SELECT * FROM Persons WHERE FirstName='Matthew' OR 1=1" />
+                <button type="submit" value="Submit">Submit </button>
+            </form>
+        </div>
+        <?php
+        if (isset($_GET["sqlAttack"])) {
+            $injectVal = $_GET['sqlAttack'];
+            $db = new database();
+            $rows = $db->query($injectVal)->fetchAll();
+            $count = count($rows);
+            echo "count is {$count}";
+            foreach ($rows as $row) {
+                echo "
+                             <tr>
+                             <td onclick='redirect()'>{$row[0]}!!</td>
+                             <td> oreo </td>
+                             </tr>";
+            }
+        }
+        ?>
+
     </div>
 
 </body>

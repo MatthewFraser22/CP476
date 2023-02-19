@@ -10,6 +10,7 @@
         <h2>Marks</h2>
         <p>This shows the marks for the student. Click on the edit button to change their marks. All marks have decimal number with one digital after the dot.</p>
         <div style="overflow-x:auto;">
+
             <table>
                 <tr>
                     <th>Grade item</th>
