@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="container">
-        <h2>Final grade output (Followign Appendix B)</h2>
+        <h2>Final grade output (Following Appendix B)</h2>
 
         <div style="overflow-x:auto;">
             <table>
