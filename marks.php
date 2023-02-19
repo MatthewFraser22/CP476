@@ -36,7 +36,7 @@
                             $db = new database();
                             $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
                             echo "grade {$_POST['grade']}";
-                            header('Location: http://127.0.0.1/CP476/marks.php');
+                            header('Location: ./marks.php');
                             // echo $count;
                             // print_r($rows);
                         }
