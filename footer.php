@@ -5,7 +5,7 @@
 
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="single_footer single_footer_address">
-                    <h4>EasyMarking is constantly evolving, keep an eye out on future updates</h4>
+                    <h4>EasyMarking© is constantly evolving, keep an eye out on future updates</h4>
 
 
 

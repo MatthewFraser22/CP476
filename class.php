@@ -6,6 +6,10 @@
 <body>
     <?php include 'header.php'; ?>
     <div class="container">
+
+        <span class="backIcon" onclick="window.history.go(-1)">&#8592;</span>
+
+
         <h2>Class List For X Course</h2>
         <p>This shows the list of students enrolled in the class. Click on the student to find out their marks on this course.</p>
         <div style="overflow-x:auto;">

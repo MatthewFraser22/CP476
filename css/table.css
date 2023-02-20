@@ -52,3 +52,13 @@ tr:nth-child(even){background-color: #f2f2f2}
 .sqlAttack{
   width: 70%;
 }
+
+.backIcon{
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.backIcon:hover{
+  text-decoration: underline;
+}
+

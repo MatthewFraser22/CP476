@@ -7,6 +7,9 @@
 <body>
     <?php include 'header.php'; ?>
     <div class="container">
+        <span class="backIcon" onclick="window.history.go(-1)">&#8592;</span>
+
+
         <h2>Marks</h2>
         <p>This shows the marks for the student. Click on the edit button to change their marks. All marks have decimal number with one digital after the dot.</p>
         <div style="overflow-x:auto;">
