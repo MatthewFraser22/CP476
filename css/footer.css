@@ -47,10 +47,8 @@ background: linear-gradient(105deg,#6e99e6 ,#093c94);
 padding-top: 80px;
 padding-bottom: 40px;
 height: 15rem;
-position: fixed;
-left: 0;
-bottom: 0;
 width: 100%;
+margin-top: auto;
 }
 /*END FOOTER SOCIAL DESIGN*/
 .single_footer{}

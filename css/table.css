@@ -7,6 +7,9 @@ body {
   color: white; */
   color: #093c94;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 
@@ -35,7 +38,10 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 .container{
   padding: 1rem;
-
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8rem;
 }
 
 .container h1{
@@ -62,3 +68,8 @@ tr:nth-child(even){background-color: #f2f2f2}
   text-decoration: underline;
 }
 
+.homepagePic{
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+}

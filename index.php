@@ -10,6 +10,7 @@
     <div class="container">
         <h1>Easily marks students in different courses with EasyMarking </h1>
         <h4>Millions of markers and agencies around the world use EasyMarking - be apart of our community. </h4>
+        <img class="homepagePic" src="easymarkinghome.jpg" />
         <h2>Course List</h2>
         <p>This shows the list of courses. Click on a course to see the students enrolled in the class. The final output (following Appendix B) can be seen in the marks page.</p>
         <div style="overflow-x:auto;">
@@ -46,7 +47,7 @@
             <form method="get">
                 <label for="sqlAttack">SQL Attack / Query: </label>
 
-                <input class="sqlAttack" name="sqlAttack" placeholder="Enter a SQL attack" value="SELECT * FROM Persons WHERE FirstName='Matthew' OR 1=1" />
+                <input class="sqlAttack" name="sqlAttack" placeholder="Enter a SQL attack or query" value="SELECT * FROM Persons WHERE FirstName='Matthew' OR 1=1" />
                 <button class="blueButton" type="submit" value="Submit">Submit </button>
             </form>
         </div>
