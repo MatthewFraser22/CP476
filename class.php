@@ -15,46 +15,23 @@
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                    <th>First Name</th>
+                    <th>Student ID</th>
                     <th>Last Name</th>
-                    <th>Student Id</th>
-                    <th>Grades</th>
-
                 </tr>
-                <tr onclick="redirect()">
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>12221</td>
-                    <td>50</td>
 
-                </tr>
-                <tr onclick="redirect()">
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>12221</td>
-                    <td>50</td>
-
-                </tr>
-                <tr onclick="redirect()">
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>12221</td>
-                    <td>50</td>
-
-                </tr>
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $rows = $db->query('SELECT * FROM students WHERE student_id = :id', [":id" => $_GET['id']])->fetchAll();
+
                 $count = count($rows);
                 // echo $count;
                 // print_r($rows);
+                echo  $_GET['id'];
                 foreach ($rows as $row) {
                     echo "
                     <tr>
-                    <td onclick='redirect()'>{$row["value"]}</td>
-                    <td>Bla bla</td>
-                    <td>Aa</td>
-                    <td>bb</td>
+                    <td onclick='redirect()'>{$row["student_id"]}</td>
+                    <td onclick='redirect()'>{$row["name"]}</td>
                     </tr>";
                 }
                 ?>

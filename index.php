@@ -16,25 +16,21 @@
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                    <th>Course Code </th>
+                    <th>Number </th>
                     <th>Course Name</th>
                 </tr>
-                <tr onclick="redirect()">
-                    <td>CP476</td>
-                    <td>Internet Computing</td>
-                </tr>
-                <tr onclick=" redirect()">
-                    <td>CP312</td>
-                    <td>Algorithims</td>
-                </tr>
+
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
+                $rows = $db->query('SELECT * from courses')->fetchAll();
                 $count = count($rows);
                 // echo $count;
                 // print_r($rows);
+
+                $i = 1;
                 foreach ($rows as $row) {
-                    echo "<tr><td onclick='redirect()'>{$row["value"]}</td><td>Bla bla</td></tr>";
+                    echo "<tr onclick='redirect({$row['student_id']})' ><td>{$i}</td><td>{$row["course_code"]}</td></tr>";
+                    $i++;
                 }
                 ?>
             </table>

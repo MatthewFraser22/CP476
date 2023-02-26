@@ -1,3 +1,3 @@
-function redirect() {
-    window.location.href="class.php"
+function redirect(id) {
+    window.location.href=`class.php?id=${id}`
   }
