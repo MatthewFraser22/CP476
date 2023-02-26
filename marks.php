@@ -37,11 +37,11 @@
                         <tr>
                         <td>{$test}</td>
                         <td>{$row["test_{$x}"]}</td>
-                        <td><button class='edit blueButton' type='button' onclick='showDiv(0)'>Edit</button>
+                        <td><button class='edit blueButton' type='button' onclick='showDiv($x - 1)'>Edit</button>
                         <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
-                            <label for='grade'>New Grade: </label>
+                            <label for='grade{$x}'>New Grade: </label>
     
-                            <input onchange='setTwoNumberDecimal' step='0.01' min='0' max='100' type='number' name='grade' placeholder='eg; 50.0' />
+                            <input onchange='setTwoNumberDecimal' step='0.01' min='0' max='100' type='number' name='grade{$x}'' placeholder='eg; 50.0' />
                             <button class='blueButton' type='submit' value='Submit'>Submit </button>
                         </form>
                     </td>
@@ -51,29 +51,43 @@
                     <tr>
                     <td >Exam</td>
                     <td >{$row["exam"]}</td>
-                    <td><button class='edit blueButton' type='button' onclick='showDiv(0)'>Edit</button>
+                    <td><button class='edit blueButton' type='button' onclick='showDiv(3)'>Edit</button>
                     <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
-                        <label for='grade'>New Grade: </label>
+                        <label for='exam'>New Grade: </label>
 
-                        <input onchange='setTwoNumberDecimal' step='0.01' min='0' max='100' type='number' name='grade' placeholder='eg; 50.0' />
+                        <input onchange='setTwoNumberDecimal' step='0.01' min='0' max='100' type='number' name='exam' placeholder='eg; 50.0' />
                         <button class='blueButton' type='submit' value='Submit'>Submit </button>
                     </form>
                 </td>
                     </tr>";
                 }
-                if (isset($_POST["grade"])) {
+
+                function postHelper($i)
+                {
                     $data = [
-                        'grade' => $_POST['grade'],
+                        'grade' => $_POST["grade{$i}"], "id" => $_GET['id'], "course" => $_GET['course']
                     ];
                     $db = new database();
-                    $rows = $db->query('UPDATE courses SET test_1=:grade', $data)->fetchAll();
-                    echo '<script>
-                    // alert("Grade has been updated!");
-                    window.location.href="./marks.php";
-                    </script>';
-                    // echo $count;
-                    // print_r($rows);
+                    $rows = $db->query("UPDATE courses SET test_{$i}=:grade WHERE courses.student_id = :id AND course_code = :course", $data)->fetchAll();
+                    header("Refresh:0");
                 }
+                for ($x = 1; $x < 4; $x++) {
+                    if (isset($_POST["grade{$x}"])) {
+
+                        postHelper($x);
+                    }
+                }
+
+                if (isset($_POST["exam"])) {
+
+                    $data = [
+                        'grade' => $_POST["exam"], "id" => $_GET['id'], "course" => $_GET['course']
+                    ];
+                    $db = new database();
+                    $rows = $db->query("UPDATE courses SET exam=:grade WHERE courses.student_id = :id AND course_code = :course", $data)->fetchAll();
+                    header("Refresh:0");
+                }
+
 
                 ?>
 
