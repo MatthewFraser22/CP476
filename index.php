@@ -29,7 +29,7 @@
 
                 $i = 1;
                 foreach ($rows as $row) {
-                    echo "<tr onclick='redirect({$row['student_id']})' ><td>{$i}</td><td>{$row["course_code"]}</td></tr>";
+                    echo "<tr onclick='redirect(`{$row['student_id']}`, `{$row['course_code']}`)' ><td>{$i}</td><td>{$row["course_code"]}</td></tr>";
                     $i++;
                 }
                 ?>

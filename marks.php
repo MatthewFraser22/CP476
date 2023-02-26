@@ -22,67 +22,66 @@
 
 
                 </tr>
-                <tr>
-                    <td>Test 1</td>
-                    <td>50</td>
-                    <td><button class="edit blueButton" type="button" onclick="showDiv(0)">Edit</button>
-                        <form method="post" class="editForm" style="visibility: hidden; display:inline;">
-                            <label for="grade">New Grade: </label>
-
-                            <input onchange="setTwoNumberDecimal" step="0.01" min="0" max="100" type="number" name="grade" placeholder="eg; 50.0" />
-                            <button class="blueButton" type="submit" value="Submit">Submit </button>
-                        </form>
-                        <?php
-                        if (isset($_POST["grade"])) {
-                            $data = [
-                                'name' => $_POST['grade'],
-                            ];
-                            $db = new database();
-                            $rows = $db->query('UPDATE Persons SET FirstName=:name', $data)->fetchAll();
-                            echo '<script>
-                            // alert("Grade has been updated!");
-                            window.location.href="./marks.php";
-                            </script>';
-                            // echo $count;
-                            // print_r($rows);
-                        }
-                        ?>
-
-
-
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>Test 2</td>
-                    <td>50</td>
-                    <td><button class="blueButton" type="button" onclick="alert('Hello world!')">Edit</button></td>
-
-                </tr>
-                <tr>
-                    <td>Test 3</td>
-                    <td>50</td>
-                    <td><button class="blueButton" type="button" onclick="alert('Hello world!')">Edit</button></td>
-
-                </tr>
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT FirstName FROM Persons')->fetchAll();
+                $rows = $db->query('SELECT DISTINCT test_1,test_2,test_3, exam  FROM courses 
+ WHERE courses.student_id = :id AND course_code = :course', [":id" => $_GET['id'], ":course" => $_GET['course']])->fetchAll();
                 $count = count($rows);
-                // echo $count;
+                echo $count;
                 // print_r($rows);
+                // echo  $_GET['id'];
                 foreach ($rows as $row) {
+                    for ($x = 1; $x < 4; $x++) {
+                        $test = 'Test ' . $x;
+                        echo "
+                        <tr>
+                        <td>{$test}</td>
+                        <td>{$row["test_{$x}"]}</td>
+                        <td><button class='edit blueButton' type='button' onclick='showDiv(0)'>Edit</button>
+                        <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
+                            <label for='grade'>New Grade: </label>
+    
+                            <input onchange='setTwoNumberDecimal' step='0.01' min='0' max='100' type='number' name='grade' placeholder='eg; 50.0' />
+                            <button class='blueButton' type='submit' value='Submit'>Submit </button>
+                        </form>
+                    </td>
+                        </tr>";
+                    }
                     echo "
                     <tr>
-                    <td onclick='redirect()'>{$row["FirstName"]}</td>
-                    <td>Bla bla</td>
-                    <td><button class='blueButton' type='button' onclick='alert('Hello world!')'>Edit</button></td>
+                    <td >Exam</td>
+                    <td >{$row["exam"]}</td>
+                    <td><button class='edit blueButton' type='button' onclick='showDiv(0)'>Edit</button>
+                    <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
+                        <label for='grade'>New Grade: </label>
+
+                        <input onchange='setTwoNumberDecimal' step='0.01' min='0' max='100' type='number' name='grade' placeholder='eg; 50.0' />
+                        <button class='blueButton' type='submit' value='Submit'>Submit </button>
+                    </form>
+                </td>
                     </tr>";
                 }
+                if (isset($_POST["grade"])) {
+                    $data = [
+                        'grade' => $_POST['grade'],
+                    ];
+                    $db = new database();
+                    $rows = $db->query('UPDATE courses SET test_1=:grade', $data)->fetchAll();
+                    echo '<script>
+                    // alert("Grade has been updated!");
+                    window.location.href="./marks.php";
+                    </script>';
+                    // echo $count;
+                    // print_r($rows);
+                }
+
                 ?>
+
+
 
             </table>
         </div>
+
     </div>
     <div class="container">
         <h2>Final grade output (Following Appendix B)</h2>
@@ -98,40 +97,20 @@
 
 
                 </tr>
-                <tr>
-                    <td>1111</td>
-                    <td>Matthew Francis</td>
-                    <td>CP414</td>
-                    <td>50.3</td>
 
-                </tr>
-                <tr>
-                    <td>1111</td>
-                    <td>Matthew Francis</td>
-                    <td>CP414</td>
-                    <td>50.4</td>
-
-                </tr>
-                <tr>
-                    <td>1111</td>
-                    <td>Matthew Francis</td>
-                    <td>CP414</td>
-                    <td>50.5</td>
-
-                </tr>
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT value FROM sys_config')->fetchAll();
-                $count = count($rows);
+                $rows = $db->query('SELECT *  FROM courses  INNER JOIN students
+            ON courses.student_id = students.student_id WHERE courses.student_id = :id AND course_code = :course', [":id" => $_GET['id'], ":course" => $_GET['course']])->fetchAll();
                 // echo $count;
                 // print_r($rows);
                 foreach ($rows as $row) {
                     echo "
                     <tr>
-                    <td onclick='redirect()'>{$row["value"]}</td>
-                    <td>Bla bla</td>
-                    <td>Aa</td>
-                    <td>bb</td>
+                    <td onclick='redirect()'>{$row["student_id"]}</td>
+                    <td onclick='redirect()'>{$row["name"]}</td>
+                    <td onclick='redirect()'>{$row["course_code"]}</td>
+                    <td onclick='redirect()'>{$row["exam"]}</td>
                     </tr>";
                 }
                 ?>

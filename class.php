@@ -16,7 +16,7 @@
             <table>
                 <tr>
                     <th>Student ID</th>
-                    <th>Last Name</th>
+                    <th>Full Name</th>
                 </tr>
 
                 <?php
@@ -26,12 +26,12 @@
                 $count = count($rows);
                 // echo $count;
                 // print_r($rows);
-                echo  $_GET['id'];
+                // echo  $_GET['id'];
                 foreach ($rows as $row) {
                     echo "
-                    <tr>
-                    <td onclick='redirect()'>{$row["student_id"]}</td>
-                    <td onclick='redirect()'>{$row["name"]}</td>
+                    <tr  onclick='redirect(`{$row['student_id']}`, `{$_GET['course']}`)'>
+                    <td>{$row["student_id"]}</td>
+                    <td>{$row["name"]}</td>
                     </tr>";
                 }
                 ?>
