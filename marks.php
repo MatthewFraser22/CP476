@@ -36,7 +36,7 @@
                         echo "
                         <tr>
                         <td>{$test}</td>
-                        <td>{$row["test_{$x}"]}</td>
+                        <td id='test_{$x}' data-myValue='{$row["test_{$x}"]}'>{$row["test_{$x}"]}</td>
                         <td><button class='edit blueButton' type='button' onclick='showDiv($x - 1)'>Edit</button>
                         <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
                             <label for='grade{$x}'>New Grade: </label>
@@ -50,7 +50,7 @@
                     echo "
                     <tr>
                     <td >Exam</td>
-                    <td >{$row["exam"]}</td>
+                    <td  id='exam'} >{$row["exam"]}</td>
                     <td><button class='edit blueButton' type='button' onclick='showDiv(3)'>Edit</button>
                     <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
                         <label for='exam'>New Grade: </label>
@@ -102,6 +102,7 @@
 
         <div style="overflow-x:auto;">
             <table>
+                <div id="outputDiv">111</div>
                 <tr>
                     <th>Student ID</th>
                     <th>Student Name</th>
@@ -127,7 +128,13 @@
                     <td onclick='redirect()'>{$row["exam"]}</td>
                     </tr>";
                 }
+
                 ?>
+
+                <script>
+                    calculator()
+                </script>
+
             </table>
         </div>
     </div>
