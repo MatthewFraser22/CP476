@@ -43,12 +43,12 @@
                 foreach ($rows as $row) {
 
                     echo "
-                    <tr>
+                    <tr  onclick='redirect(`{$row['student_id']}`, `{$_GET['course']}`)' >{$row["student_id"]}>
                     <td  onclick='redirect(`{$row['student_id']}`, `{$_GET['course']}`)' >{$row["student_id"]}</td>
                     <td  onclick='redirect(`{$row['student_id']}`, `{$_GET['course']}`)'>{$row["name"]}</td>
                                             <td><button class='edit blueButton' type='button' onclick='showDiv($x - 1)'>Edit</button>
                         <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
-                            <label for='name{$x}'>New Grade: </label>
+                            <label for='name{$x}'>New Name: </label>
     
                             <input  onkeydown='return /[a-z]/i.test(event.key)'  name='name{$x}'' placeholder='Enter characters' />
                             <button class='blueButton' type='submit' value='Submit'>Submit </button>

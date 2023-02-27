@@ -3,6 +3,7 @@ function redirect(id, course) {
   }
 
   function showDiv(index) {
+    event.stopPropagation();
     document.getElementsByClassName('editForm')[index].style.visibility = "visible";
  
     document.getElementsByClassName('edit')[index].style.display = "none";
