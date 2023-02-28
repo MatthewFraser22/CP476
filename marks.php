@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="css/table.css" type="text/css">
 <script src="marks.js"></script>
-<?php include 'database.php'; ?>
+<?php include "database.php"; ?>
 
 <html>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include "header.php"; ?>
     <div class="container">
         <span class="backIcon" onclick="window.history.go(-1)">&#8592;</span>
 
@@ -24,15 +24,20 @@
                 </tr>
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT DISTINCT test_1,test_2,test_3, exam  FROM courses 
- WHERE courses.student_id = :id AND course_code = :course', [":id" => $_GET['id'], ":course" => $_GET['course']])->fetchAll();
+                $rows = $db
+                    ->query(
+                        'SELECT DISTINCT test_1,test_2,test_3, exam  FROM courses 
+ WHERE courses.student_id = :id AND course_code = :course',
+                        [":id" => $_GET["id"], ":course" => $_GET["course"]]
+                    )
+                    ->fetchAll();
                 $count = count($rows);
                 echo $count;
                 // print_r($rows);
                 // echo  $_GET['id'];
                 foreach ($rows as $row) {
                     for ($x = 1; $x < 4; $x++) {
-                        $test = 'Test ' . $x;
+                        $test = "Test " . $x;
                         echo "
                         <tr>
                         <td>{$test}</td>
@@ -65,34 +70,42 @@
                 function postHelper($i)
                 {
                     $data = [
-                        'grade' => $_POST["grade{$i}"], "id" => $_GET['id'], "course" => $_GET['course']
+                        "grade" => $_POST["grade{$i}"],
+                        "id" => $_GET["id"],
+                        "course" => $_GET["course"],
                     ];
                     $db = new database();
-                    $rows = $db->query("UPDATE courses SET test_{$i}=:grade WHERE courses.student_id = :id AND course_code = :course", $data)->fetchAll();
-                    header("Refresh:0");
+                    $rows = $db
+                        ->query(
+                            "UPDATE courses SET test_{$i}=:grade WHERE courses.student_id = :id AND course_code = :course",
+                            $data
+                        )
+                        ->fetchAll();
+
+                    echo "<meta http-equiv='refresh' content='0'>";
                 }
                 for ($x = 1; $x < 4; $x++) {
                     if (isset($_POST["grade{$x}"])) {
-
                         postHelper($x);
                     }
                 }
 
                 if (isset($_POST["exam"])) {
-
                     $data = [
-                        'grade' => $_POST["exam"], "id" => $_GET['id'], "course" => $_GET['course']
+                        "grade" => $_POST["exam"],
+                        "id" => $_GET["id"],
+                        "course" => $_GET["course"],
                     ];
                     $db = new database();
-                    $rows = $db->query("UPDATE courses SET exam=:grade WHERE courses.student_id = :id AND course_code = :course", $data)->fetchAll();
-                    header("Refresh:0");
+                    $rows = $db
+                        ->query(
+                            "UPDATE courses SET exam=:grade WHERE courses.student_id = :id AND course_code = :course",
+                            $data
+                        )
+                        ->fetchAll();
+                    echo "<meta http-equiv='refresh' content='0'>";
                 }
-
-
                 ?>
-
-
-
             </table>
         </div>
 
@@ -102,33 +115,32 @@
 
         <div style="overflow-x:auto;">
             <table>
-                <div id="outputDiv">111</div>
+
                 <tr>
                     <th>Student ID</th>
                     <th>Student Name</th>
                     <th>Course Code</th>
                     <th>Final grade(test 1,2,3-3x20%, final exam 40%)</th>
-
-
-
                 </tr>
 
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT *  FROM courses  INNER JOIN students
-            ON courses.student_id = students.student_id WHERE courses.student_id = :id AND course_code = :course', [":id" => $_GET['id'], ":course" => $_GET['course']])->fetchAll();
-                // echo $count;
-                // print_r($rows);
+                $rows = $db
+                    ->query(
+                        'SELECT *  FROM courses  INNER JOIN students
+            ON courses.student_id = students.student_id WHERE courses.student_id = :id AND course_code = :course',
+                        [":id" => $_GET["id"], ":course" => $_GET["course"]]
+                    )
+                    ->fetchAll();
                 foreach ($rows as $row) {
                     echo "
                     <tr>
                     <td onclick='redirect()'>{$row["student_id"]}</td>
                     <td onclick='redirect()'>{$row["name"]}</td>
                     <td onclick='redirect()'>{$row["course_code"]}</td>
-                    <td onclick='redirect()'>{$row["exam"]}</td>
+                    <td onclick='redirect()' id='outputDiv'></td>
                     </tr>";
                 }
-
                 ?>
 
                 <script>
@@ -138,7 +150,7 @@
             </table>
         </div>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include "footer.php"; ?>
 </body>
 
 </html>
