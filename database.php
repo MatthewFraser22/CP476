@@ -9,12 +9,12 @@ class database
 
         $servername = "127.0.0.1";
         $username = "root";
-        $password = "w";
+        $password = "ENTER PW";
         try {
-            $this->conn = new PDO("mysql:host=$servername;dbname=sys", $username, $password);
+            $this->conn = new PDO("mysql:host=$servername;dbname=easy_marking", $username, $password);
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            // echo "Connected successfully";
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
