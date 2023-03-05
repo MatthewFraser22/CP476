@@ -38,7 +38,7 @@
         </div>
         <h2>Section 2: Demonstration of SQL Injection</h2>
         <p>This shows how SQL injection works with SELECT * FROM students WHERE name='Xiao Qiang' OR 1=1. 1=1 means truthy condition so it will return all data in the table and ignore any condition after 1=1.</p>
-        <p>In the input box, either a SQL attack such as the attack provided below or a normal query such as SELECT * FROM TABLE.
+        <p>In the input box, enter either a SQL attack such as the attack provided below or a normal query such as SELECT * FROM TABLE.
         <p>
         <div>
             <form method="get">
