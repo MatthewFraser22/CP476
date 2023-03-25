@@ -54,7 +54,7 @@
                     echo "
                     <tr>
                     <td >Exam</td>
-                    <td  id='exam'} >{$row["exam"]}</td>
+                    <td id='exam' data-myValue='{$row["exam"]}' >{$row["exam"]}</td>
                     <td><button class='edit blueButton' type='button' onclick='showDiv(3)'>Edit</button>
                     <form method='post' class='editForm' style='visibility: hidden; display:inline;'>
                         <label for='exam'>New Grade: </label>
