@@ -31,8 +31,7 @@
                         [":id" => $_GET["id"], ":course" => $_GET["course"]]
                     )
                     ->fetchAll();
-                $count = count($rows);
-                echo $count;
+
                 // print_r($rows);
                 // echo  $_GET['id'];
                 foreach ($rows as $row) {

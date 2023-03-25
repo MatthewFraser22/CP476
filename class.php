@@ -49,7 +49,7 @@
                 $x = 1;
                 foreach ($rows as $row) {
                     echo "
-                    <tr  onclick='redirect(`{$row["student_id"]}`, `{$_GET["course"]}`)' >{$row["student_id"]}>
+               
                     <td  onclick='redirect(`{$row["student_id"]}`, `{$_GET["course"]}`)' >{$row["student_id"]}</td>
                     <td  onclick='redirect(`{$row["student_id"]}`, `{$_GET["course"]}`)'>{$row["name"]}</td>
                      <td><button class='edit blueButton' type='button' onclick='showDiv($x - 1)'>Edit</button>
