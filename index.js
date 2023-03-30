@@ -4,5 +4,4 @@ function redirect(id, course) {
 
   function redirectToAll(total) {
     window.location.href=`all.php?total=${total}`;
-    cursor:pointer;
   }

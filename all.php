@@ -50,6 +50,7 @@
 
                 <script>
                     const params = new URLSearchParams(window.location.search)
+                    calculator(params.get('total'))
                 </script>
 
             </table>
