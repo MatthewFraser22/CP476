@@ -32,7 +32,7 @@
 
                 <?php
                 $db = new database();
-                $rows = $db->query('SELECT * from courses')->fetchAll();
+                $rows = $db->query('SELECT * FROM courses')->fetchAll();
                 $count = count($rows);
                 // echo $count;
                 // print_r($rows);
