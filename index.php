@@ -11,9 +11,18 @@
         <h1>Easily marks students in different courses with EasyMarking </h1>
         <h4>Millions of markers and agencies around the world use EasyMarking - be apart of our community. </h4>
         <img class="homepagePic" src="easymarkinghome.jpg" />
+
         <h2>This page has 2 sections. Course List and SQL Injection.</h2>
         <h2>Section 1: Course List</h2>
-        <p>This shows the list of courses. Click on a course to see the students enrolled in the class. The final output (following Appendix B) can be seen in the marks page.</p>
+        <?php
+        $db = new database();
+        $rows = $db->query('SELECT * FROM courses  INNER JOIN students
+        ON courses.student_id = students.student_id')->fetchAll();
+
+        $count = count($rows);
+        echo "<h3> <a class='appendixB' onclick='redirectToAll(`{$count}`)'>To view the marks for ALL students that matches appendix B, click here</a></h3>";
+        ?>
+
         <div style="overflow-x:auto;">
             <table>
                 <tr>

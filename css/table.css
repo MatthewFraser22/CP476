@@ -73,3 +73,9 @@ tr:nth-child(even){background-color: #f2f2f2}
   margin-right: auto;
   width: 20rem;
 }
+
+.appendixB{
+  text-decoration: underline;
+  color: blue;
+  cursor:pointer;
+}

@@ -7,7 +7,7 @@
 <body>
     <?php include "header.php"; ?>
     <div class="container">
-        <h2>Final grade output (Following Appendix B)</h2>
+        <h2>Final grade output for ALL students (Following Appendix B)</h2>
 
         <div style="overflow-x:auto;">
             <table>
@@ -49,7 +49,7 @@
                 ?>
 
                 <script>
-                    calculator(50)
+                    const params = new URLSearchParams(window.location.search)
                 </script>
 
             </table>
